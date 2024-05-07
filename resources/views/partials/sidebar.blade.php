@@ -57,6 +57,11 @@
             <i class="fas fa-fw fa-wrench"></i>
             <span>Alat</span></a>
     </li>
+    <li class="nav-item @if(request()->routeIs('presensi')) active @endif">
+        <a class="nav-link" href="{{ route('presensi') }}">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Presensi</span></a>
+    </li>
 
     <!-- Pembatas -->
     <hr class="sidebar-divider">

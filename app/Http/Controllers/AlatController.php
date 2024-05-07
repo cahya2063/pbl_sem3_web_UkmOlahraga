@@ -9,10 +9,16 @@ class AlatController extends Controller
 {
 
     public function index()
-    {
-        $dtAlat = Alat::all();
-        return view('alat.index', compact('dtAlat'));
-    }
+{
+    $user = auth()->user();
+    $logname = $user->name;
+
+    activity()->inLog($logname)->log('membuka alat');
+    // activity()->setEvent($logname);
+    $dtAlat = Alat::all();
+    return view('alat.index', compact('dtAlat'));
+}
+
 
 
     public function create()

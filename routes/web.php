@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\PengembalianController;
+use App\Http\Controllers\presensiController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UkmController;
 use App\Http\Middleware\CekRole;
@@ -41,8 +42,8 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::group(['middleware' => ['auth','cekrole:administator,pembina']] , function(){
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // *** PENDAFTARAN *** //
     Route::get('/pendaftaran', [PendaftaranController::class, 'index'])->name('pendaftaran');
@@ -99,6 +100,8 @@ Route::group(['middleware' => ['auth','cekrole:administator,pembina']] , functio
     Route::put('/profile', [ProfileController::class, 'update'])->name('update-profile');
     Route::post('/profile/update', [ProfileController::class, 'updateGambar'])->name('gambar-profile');
     Route::post('/profile/delete', [ProfileController::class, 'deleteGambar'])->name('delete-profile');
+
+    Route::get('presensi', [presensiController::class, 'index'])->name('presensi');
 });
 
 

@@ -97,7 +97,7 @@ class PendaftaranSeeder extends Seeder
             'email'=>'reza@gmail.com',
             'semester'=>'1',
             'no_telp'=>'0859642092093',
-            'divisi_1'=>'Esport',
+            'divisi_1'=>'E-Sport',
             'divisi_2'=>'Tenis Meja',
         ]);
         Pendaftaran::create([
